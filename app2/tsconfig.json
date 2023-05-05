@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "es5",
+    "allowJs": true,
+    "jsx":"preserve",
+    "moduleResolution":"node"
+  },
+  "files": ["src/index.ts"]
+}
