@@ -1,10 +1,10 @@
 import React, { lazy } from "react"
-const AppSecond = lazy(() => import("app2/App"))
-
+import Vue from "./components/Vue"
 const App = () => {
   return (
     <div>
-      <AppSecond />
+      <h3>sdff</h3>jhalo
+      <Vue />
     </div>
   )
 }

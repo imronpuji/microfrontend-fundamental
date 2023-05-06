@@ -8,5 +8,5 @@
     "jsx":"preserve",
     "moduleResolution":"node"
   },
-  "files": ["src/index.ts", "global.d.ts",]
+  "files": ["src/index.ts", "./src/components/d.ts"]
 }

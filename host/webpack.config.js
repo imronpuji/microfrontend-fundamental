@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {ModuleFederationPlugin} = require('webpack').container
 const path = require('path');
 
+
 const isProduction = process.env.NODE_ENV == 'production';
 
 
@@ -28,9 +29,10 @@ const config = {
         new ModuleFederationPlugin({
             name: 'app1',
             remotes: {
-                app2: 'app2@http://localhost:8001/remoteEntry.js',
+                // app2: 'app2@http://localhost:8001/remoteEntry.js',
+                app3: 'app3@http://localhost:8001/remoteEntry.js',
             },
-            shared: {react: {singleton: true}, "react-dom": {singleton: true}},
+            // shared: {react: {singleton: true}, "react-dom": {singleton: true}},
         })
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
@@ -54,6 +56,25 @@ const config = {
                   }
             },
             {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                        // plugins: ['@babel/plugin-transform-runtime'],
+                    }
+                }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                  'vue-style-loader',
+                  'css-loader'
+                ]
+              },
+
+            {
                 test: /\.css$/i,
                 use: [stylesHandler, 'css-loader', 'postcss-loader'],
             },
@@ -67,7 +88,7 @@ const config = {
         ],
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
+        extensions: ['.tsx', '.ts', '.jsx', '.js', '.vue', '...'],
     },
 };
 
