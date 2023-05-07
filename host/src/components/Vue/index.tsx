@@ -4,9 +4,7 @@ import React, { useRef, useEffect } from "react"
 export default () => {
   const ref = useRef(null)
 
-  useEffect(() => {
-    mount(ref.current)
-  })
+  console.log(mount)
 
-  return <div ref={ref} />
+  return <h1>mount</h1>
 }

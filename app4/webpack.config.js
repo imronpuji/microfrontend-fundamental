@@ -1,3 +1,4 @@
+    
 
 const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
@@ -6,7 +7,7 @@ const { ModuleFederationPlugin } = require('webpack').container
 
 module.exports = {
 mode:"development",
-    entry: './src/bootstrap.js',
+    entry: './src/main.js',
   
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -53,25 +54,24 @@ mode:"development",
       }
   },
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        },
-      {
         test: /\.css$/,
         use: ['vue-style-loader', 'css-loader'],
-      },
+          },
+          {
+            test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+            type: 'asset',
+        },
     ],
     },
   
   plugins: [
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-        template: './public/index.html',
+        template: './index.html',
     }),
 
       new ModuleFederationPlugin({
-        name: 'app2',
+        name: 'app4',
         filename:'remoteEntry.js',
         exposes: {
             './App': './src/bootstrap',
@@ -81,8 +81,8 @@ mode:"development",
   devServer: {
             open: true,
             host: 'localhost',
-            port: 8003,
-      hot: true,
-            
+            port: 3000,
+             hot: false,
+       
         },
 };

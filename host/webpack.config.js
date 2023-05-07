@@ -30,9 +30,9 @@ const config = {
             name: 'app1',
             remotes: {
                 // app2: 'app2@http://localhost:8001/remoteEntry.js',
-                app3: 'app3@http://localhost:8001/remoteEntry.js',
+                app3: 'app3@http://localhost:8003/remoteEntry.js',
             },
-            // shared: {react: {singleton: true}, "react-dom": {singleton: true}},
+            shared: {react: {singleton: true}, "react-dom": {singleton: true}},
         })
         // Add your plugins here
         // Learn more about plugins from https://webpack.js.org/configuration/plugins/
@@ -66,6 +66,11 @@ const config = {
                     }
                 }
             },
+            {
+                test: /\.js$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                },
             {
                 test: /\.css$/,
                 use: [
