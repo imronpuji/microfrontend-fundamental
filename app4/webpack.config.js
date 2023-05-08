@@ -81,7 +81,7 @@ mode:"development",
   devServer: {
             open: true,
             host: 'localhost',
-            port: 3000,
+            port: 3004,
              hot: false,
        
         },
