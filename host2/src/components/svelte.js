@@ -3,7 +3,10 @@ import Mount from "app5/App"
 
 
 new Mount({
-    target:document.body
+    target: document.getElementById("svelte"),
+    props: {
+        isolated: true
+      }
 })
 
 const App = () => {
